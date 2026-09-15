@@ -1,0 +1,12 @@
+name: Retirar publicacion temporal
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retirar copia publica de Supabase
+        run: |
+          curl -fsS "https://lhbykobrogjdboxcqwzi.supabase.co/functions/v1/simulador-uc3m-cleanup"
